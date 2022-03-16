@@ -168,7 +168,7 @@ class GoogleDriveHelper:
         # File body description
         file_metadata = {
             'name': file_name,
-            'description': 'Uploaded by Mirror-leech-telegram-bot',
+            'description': 'Uploaded by SK',
             'mimeType': mime_type,
         }
         if parent_id is not None:
@@ -534,7 +534,7 @@ class GoogleDriveHelper:
                     nxt_page += 1
             telegraph.edit_page(
                 path = self.path[prev_page],
-                title = 'Mirror-Leech-Bot Drive Search',
+                title = 'SK Drive Search',
                 content=content
             )
         return
@@ -668,7 +668,7 @@ class GoogleDriveHelper:
                 mime_type = file.get('mimeType')
                 if mime_type == "application/vnd.google-apps.folder":
                     furl = f"https://drive.google.com/drive/folders/{file.get('id')}"
-                    msg += f"📁 <code>{file.get('name')}<br>(folder)</code><br>"
+                    msg += f"📁 {file.get('name')}<br>(folder)<br>"
                     furl = short_url(furl)
                     msg += f"<b><a href={furl}>Drive Link</a></b>"
                     if INDEX_URLS[index] is not None:
@@ -685,7 +685,7 @@ class GoogleDriveHelper:
                     # Excluded index link as indexes cant download or open these shortcuts
                 else:
                     furl = f"https://drive.google.com/uc?id={file.get('id')}&export=download"
-                    msg += f"📄 <code>{file.get('name')}<br>({get_readable_file_size(int(file.get('size', 0)))})</code><br>"
+                    msg += f"📄 {file.get('name')}<br>({get_readable_file_size(int(file.get('size', 0)))})<br>"
                     furl = short_url(furl)
                     msg += f"<b><a href={furl}>Drive Link</a></b>"
                     if INDEX_URLS[index] is not None:
