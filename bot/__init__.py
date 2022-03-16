@@ -333,6 +333,12 @@ except KeyError:
     BUTTON_SIX_NAME = None
     BUTTON_SIX_URL = None
 try:
+    IMAGE_URL = getConfig('IMAGE_URL')
+    if len(IMAGE_URL) == 0:
+        IMAGE_URL = 'https://telegra.ph/file/fa50d7c460eb61e5253a5.jpg'
+except KeyError:
+    IMAGE_URL = 'https://telegra.ph/file/fa50d7c460eb61e5253a5.jpg'
+try:
     STOP_DUPLICATE = getConfig('STOP_DUPLICATE')
     STOP_DUPLICATE = STOP_DUPLICATE.lower() == 'true'
 except KeyError:
