@@ -42,26 +42,26 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'<b>╭──「⭕️ BOT STATISTICS ⭕️」</b>\n' \
+    stats = f'<b>╭──《🌐 Bᴏᴛ Sᴛᴀᴛɪsᴛɪᴄs 🌐》</b>\n' \
             f'<b>│</b>\n' \
-            f'<b>├  ⏰ Bot Uptime : {currentTime}</b>\n' \
-            f'<b>├  💾 Total Disk Space : {total}</b>\n' \
-            f'<b>├  📀 Total Used Space : {used}</b>\n' \
-            f'<b>├  💿 Total Free Space : {free}</b>\n' \
-            f'<b>├  🔼 Total Upload : {sent}</b>\n' \
-            f'<b>├  🔽 Total Download : {recv}</b>\n' \
-            f'<b>├  🖥️ CPU : {cpuUsage}%</b>\n' \
-            f'<b>├  🎮 RAM : {mem_p}%</b>\n' \
-            f'<b>├  💽 DISK : {disk}%</b>\n' \
+            f'<b>├  ▶ Rᴜɴɴɪɴɢ Sɪɴᴄᴇ ▶ : {currentTime}</b>\n' \
+            f'<b>├  💾 Tᴏᴛᴀʟ Dɪsᴋ Sᴘᴀᴄᴇ : {total}</b>\n' \
+            f'<b>├  📀 Tᴏᴛᴀʟ Usᴇᴅ Sᴘᴀᴄᴇ : {used}</b>\n' \
+            f'<b>├  💿 Tᴏᴛᴀʟ Fʀᴇᴇ Sᴘᴀᴄᴇ : {free}</b>\n' \
+            f'<b>├  🔼 Tᴏᴛᴀʟ Uᴘʟᴏᴀᴅ : {sent}</b>\n' \
+            f'<b>├  🔽 Tᴏᴛᴀʟ Dᴏᴡɴʟᴏᴀᴅ : {recv}</b>\n' \
+            f'<b>├  🖥️ Cᴘᴜ : {cpuUsage}%</b>\n' \
+            f'<b>├  🎮 Rᴀᴍ : {mem_p}%</b>\n' \
+            f'<b>├  💽 Dɪsᴋ : {disk}%</b>\n' \
             f'<b>│</b>\n' \
-            f'<b>╰──「 ♥️ Pooja Hegde ♥️ 」</b>'
+            f'<b>╰──《 ♥️ @TnToonBot ♥️ 》</b>'
     update.effective_message.reply_photo(IMAGE_URL, stats, parse_mode=ParseMode.HTML)
     
 
 def start(update, context):
     buttons = ButtonMaker()
-    buttons.buildbutton("Repo", "https://www.github.com/anasty17/mirror-leech-telegram-bot")
-    buttons.buildbutton("Report Group", "https://t.me/+MwgSi5vmQEA2N2Vk")
+    buttons.buildbutton("Channel", "https://t.me/tntoonbot")
+    buttons.buildbutton("chat Group", "https://t.me/tntoonbotchat")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -70,7 +70,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
         sendMarkup(IMAGE_URL, start_string, context.bot, update, reply_markup)
     else:
-        sendMarkup('Not Authorized user, deploy your own mirror-leech bot', context.bot, update, reply_markup)
+        sendMarkup('Sorry, You are not authorized user', context.bot, update, reply_markup)
 
 def restart(update, context):
     restart_message = sendMessage("Restarting...", context.bot, update)
